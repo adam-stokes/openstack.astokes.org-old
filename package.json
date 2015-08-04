@@ -1,0 +1,28 @@
+{
+  "name": "openstack-astokes-org",
+  "version": "0.0.0",
+  "description": "My unreal module",
+  "license": "MIT",
+  "repository": "battlemidget/openstack-astokes-org",
+  "author": {
+    "name": "Adam Stokes",
+    "email": "adam.stokes@ubuntu.com",
+    "url": "openstack.astokes.org"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
