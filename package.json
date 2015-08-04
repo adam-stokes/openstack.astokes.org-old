@@ -21,7 +21,17 @@
   "keywords": [
     ""
   ],
-  "dependencies": {},
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "good": "^6.3.0",
+    "good-console": "^5.0.2",
+    "hapi": "^8.8.1",
+    "jade": "^1.11.0",
+    "jeet": "^6.1.2",
+    "marked": "^0.3.5",
+    "moment": "^2.10.6",
+    "nib": "^1.1.0"
+  },
   "devDependencies": {
     "mocha": "*"
   }
