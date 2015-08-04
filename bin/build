@@ -19,8 +19,6 @@ VENDORCSS=(
 )
 VENDORJS=(
     bower_components/jquery/dist/jquery.js
-    bower_components/bootstrap/dist/js/bootstrap.js
-    bower_components/flowtype/flowtype.js
     bower_components/highlightjs/highlight.pack.js
     bower_components/Buttons/js/buttons.js
     assets/js/main.js

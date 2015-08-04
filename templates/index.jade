@@ -1,0 +1,16 @@
+extends ./layout.jade
+
+block content
+  #step1
+    h1 Install
+    .codebox
+      pre
+       $ sudo apt-add-repository ppa:cloud-installer/stable
+       $ sudo apt-add-repository ppa:juju/stable
+       $ sudo apt-get update
+       $ sudo apt-get install openstack
+  #step2
+    h1 Run
+    .codebox
+      pre
+        $ sudo openstack-install

@@ -1,0 +1,23 @@
+{
+  "name": "openstack.astokes.org",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/battlemidget/openstack.astokes.org",
+  "authors": [
+    "Adam Stokes <adam.stokes@ubuntu.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "highlightjs": "~8.6.0",
+    "Buttons": "~2.0.0",
+    "font-awesome": "~4.4.0",
+    "jquery": "~2.1.4"
+  }
+}

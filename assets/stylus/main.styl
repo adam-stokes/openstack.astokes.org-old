@@ -2,14 +2,12 @@
 @import "jeet"
 @import "variables"
 @import "mixers"
-@import "article"
+
+global-reset()
 
 body
-  font-conent-mixin(1.4em)
-  background url("/static/images/lined_paper_@2X.png") top left repeat
-  padding 0
-  margin 0
-  font-link-mixin()
+  background url("/static/images/header-background.jpg")
+  background-size cover
 
 pre
 code
@@ -21,25 +19,26 @@ section
 
 .container
   center(960px)
-  font-content-mixin()
-
-  .blog-roll
-    col(1/2)
-  .sidebar
-    col(1/2)
 
 #header
-  flexxin()
-  .logo
-    col(1/3)
-    vertical-align()
-    img
-      height 70px
-      border-radius(50px)
+  top 0
+  left 0
+  z-index 999
+  width 100%
+  background-color rgba(0,0,0, 0.7)
+  .brand
+    col(1/2)
+    color light-grey
+    font-family font-brand
+    font-weight 900
+    font-size 2em
+    line-height 4em
   .menu
-    col(1/3)
-    vertical-align()
-  .blurb
-    col(1/3)
-    vertical-align()
-    font-brand-mixin(text-default, 22px)
+    col(1/2)
+    color light-grey
+    font-family font-content
+    font-size 1em
+    padding-top 15px
+    text-align right
+
+@import "splashpage"

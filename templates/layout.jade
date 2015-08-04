@@ -7,7 +7,7 @@ html
     meta(name='description', content='ubuntu, linux, openstack, and cloud related blog.')
     meta(name='keywords', content='ubuntu, linux, openstack, cloud, installer')
     meta(name='viewport', content='width=device-width')
-    link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,500|Exo+2:400,900,900italic,700' rel='stylesheet' type='text/css')
     link(rel='stylesheet', type='text/css', href='/static/css/main.min.css')
     script(src='/static/js/main.min.js')
     script.
@@ -15,11 +15,17 @@ html
     title= site.title
   body
     block header
-      .container
+      #header
+        .container
+          .brand
+            | Ubuntu OpenStack Installer
+          .menu
+            | Home | Getting Started | Download | Docs | Support
     .container
       block content
         Content here
       block sidebar
         boo
     block footer
-      | &copy; Canonical, Ltd.
+      .container
+        | &copy; Canonical, Ltd.

@@ -33,7 +33,7 @@ server.views({
     relativeTo: __dirname,
     path: "./templates",
     context: {
-        site: config.info
+        site: config
     }
 });
 
