@@ -14,13 +14,13 @@ STYLUSFILE=$STYLUSDIR/main.styl
 # VENDOR
 VENDORCSS=(
     bower_components/highlightjs/styles/obsidian.css
-    bower_components/Buttons/css/buttons.css
     bower_components/font-awesome/css/font-awesome.css
+    bower_components/bootswatch/united/bootstrap.css
 )
 VENDORJS=(
     bower_components/jquery/dist/jquery.js
+    bower_components/bootstrap/dist/js/bootstrap.js
     bower_components/highlightjs/highlight.pack.js
-    bower_components/Buttons/js/buttons.js
     assets/js/main.js
 )
 
@@ -29,13 +29,14 @@ rm -rf public
 mkdir -p public/{js,css,images,fonts}
 
 echo "Running"
-$STYLUS -u ./node_modules/nib -u ./node_modules/jeet \
-           $STYLUSFILE -o public/css
-cat $VENDORCSS > public/css/vendor.css
+$STYLUS -u ./node_modules/nib \
+        $STYLUSFILE -o public/css
+echo "Copying ${VENDORCSS[@]}"
+cat "${VENDORCSS[@]}" > public/css/vendor.css
 $CSSMIN public/css/*.css > public/css/main.min.css
 
 echo "Writing javascript files..."
-$UGLIFY $VENDORJS -o public/js/main.min.js
+$UGLIFY "${VENDORJS[@]}" -o public/js/main.min.js
 
 echo "Copying additional resources"
 rsync -az assets/fonts/* public/fonts/.

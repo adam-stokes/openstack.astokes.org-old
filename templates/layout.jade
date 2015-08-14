@@ -15,17 +15,22 @@ html
     title= site.title
   body
     block header
-      #header
-        .container
-          .brand
-            | Ubuntu OpenStack Installer
-          .menu
-            | Home | Getting Started | Download | Docs | Support
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand Ubuntu OpenStack Installer
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href="/") Home
+          li
+            a(href="/docs") Docs
     .container
       block content
-        Content here
-      block sidebar
-        boo
+        | Content here
     block footer
       .container
-        | &copy; Canonical, Ltd.
+        hr
+        .col-md-6
+          | &copy; #{copyrightYear} Canonical, Ltd.
+        .col-md-6
+          img.img-responsive(src="/static/images/logo-canonical.svg")

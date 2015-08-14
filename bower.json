@@ -16,8 +16,9 @@
   ],
   "dependencies": {
     "highlightjs": "~8.6.0",
-    "Buttons": "~2.0.0",
     "font-awesome": "~4.4.0",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "bootswatch": "~3.3.5+2"
   }
 }

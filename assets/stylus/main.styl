@@ -1,44 +1,5 @@
 @import "nib"
-@import "jeet"
 @import "variables"
-@import "mixers"
-
-global-reset()
 
 body
-  background url("/static/images/header-background.jpg")
-  background-size cover
-
-pre
-code
-  font-code-mixin()
-
-section
-  center(960px)
-  font-content-mixin(18px)
-
-.container
-  center(960px)
-
-#header
-  top 0
-  left 0
-  z-index 999
-  width 100%
-  background-color rgba(0,0,0, 0.7)
-  .brand
-    col(1/2)
-    color light-grey
-    font-family font-brand
-    font-weight 900
-    font-size 2em
-    line-height 4em
-  .menu
-    col(1/2)
-    color light-grey
-    font-family font-content
-    font-size 1em
-    padding-top 15px
-    text-align right
-
-@import "splashpage"
+  padding-top 70px

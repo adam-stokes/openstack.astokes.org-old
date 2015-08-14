@@ -1,16 +1,26 @@
 extends ./layout.jade
 
 block content
-  #step1
-    h1 Install
-    .codebox
-      pre
-       $ sudo apt-add-repository ppa:cloud-installer/stable
-       $ sudo apt-add-repository ppa:juju/stable
-       $ sudo apt-get update
-       $ sudo apt-get install openstack
-  #step2
-    h1 Run
-    .codebox
-      pre
+  .col-md-12
+    .jumbotron
+      | <iframe width="1000" height="563" src="https://www.youtube.com/embed/1eUoamVBzFI" frameborder="0" allowfullscreen></iframe>
+  .col-md-6
+    h1 Get Started
+    p Getting started is easy:
+    pre
+      code.bash.
+        $ sudo apt-add-repository ppa:cloud-installer/stable
+        $ sudo apt-get update
+        $ sudo apt-get install openstack
         $ sudo openstack-install
+  .col-md-6
+    h1 Get Help
+    p For developer support
+      .well
+        p.
+          We're on <strong>irc.freenode.net</strong> at #ubuntu-solutions or
+          our <a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-openstack-installer">mailing list</a>.
+    p General OpenStack
+      .well
+        p.
+          Find help on running OpenStack at <a href="https://askubuntu.com/questions/tagged/openstack">Ask Ubuntu</a>

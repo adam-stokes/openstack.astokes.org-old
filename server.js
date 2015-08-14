@@ -4,6 +4,7 @@ var Good = require("good");
 var config = require("./config");
 var server = new Hapi.Server();
 var Yar = require("yar");
+var moment = require("moment");
 
 server.connection({
     port: config.port
@@ -33,7 +34,8 @@ server.views({
     relativeTo: __dirname,
     path: "./templates",
     context: {
-        site: config
+        site: config,
+        copyrightYear: moment().format("YYYY")
     }
 });
 
@@ -50,6 +52,22 @@ server.route({
     method: "GET",
     handler: function(request, reply) {
         return reply.view("index");
+    }
+});
+
+server.route({
+    path: "/docs",
+    method: "GET",
+    handler: function(request, reply){
+        return reply.view("docs");
+    }
+});
+
+server.route({
+    path: "/support",
+    method: "GET",
+    handler: function(request, reply){
+        return reply.view("support");
     }
 });
 
