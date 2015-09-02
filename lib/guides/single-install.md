@@ -14,13 +14,17 @@ $ sudo apt-get update
 > Adding the ppa is only necessary until an official release to the archives has
 > been announced.
 
-## Recommended Hardware
+## Hardware
 
 The installer would work best with at least:
 
-- 12G RAM
+- 12G RAM (Hard requirement, see note below.)
 - 100G HDD (SSD for optimal performance)
 - 8 CPUS
+
+> If running on a system with less than 12G of RAM expect to run into
+> deployment issues early. Currently, 12G is the absolute lowest
+> one can go to ensure a deployment will succeed.
 
 ## Installation
 
@@ -38,8 +42,6 @@ To start the installation run the following command
 $ sudo openstack-install
 ```
 
-> **important**
->
 > The installer should be run with sudo.
 
 Optional Flags
