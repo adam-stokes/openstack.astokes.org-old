@@ -133,7 +133,7 @@ juju bootstrapped system.
 
 ## Accessing the OpenStack environment
 
-See Using Juju in OpenStack Guide \<using-juju-in-openstack.guide\>
+[See Using Juju in OpenStack Guide](/guides/using-juju)
 
 ## Tips
 
