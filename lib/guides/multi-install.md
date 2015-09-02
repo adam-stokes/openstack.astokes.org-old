@@ -7,17 +7,12 @@ Multi-Installer has been tested on Ubuntu Server, which is the recommended OS fo
 Add the OpenStack installer ppa to your system.
 
 ```
-$ sudo apt-add-repository ppa:maas-maintainers/stable
-$ sudo apt-add-repository ppa:cloud-installer/testing
+$ sudo apt-add-repository ppa:cloud-installer/stable
 $ sudo apt-get update
 ```
 
-> **note**
->
 > Adding the ppa is only necessary until an official release to the archives has been announced.
 
-> **attention**
->
 > For a proper installation the system must have an available network interface
 > that can be managed by MAAS and respond to DNS/DHCP requests. The private
 > network can then be configured to forward traffic out via public network
@@ -47,8 +42,6 @@ iface br0 inet static
 
 Below sets up the NAT for those interfaces, save to **/etc/network/iptables.rules**:
 
-> **attention**
->
 > Make sure the **bridge-utils** package is installed.
 
 ```
@@ -67,8 +60,6 @@ Finally, enable IP Forwarding:
 $ echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
 
-> **note**
->
 > To make IP Forwarding persists, set the value in **/etc/sysctl.conf**
 
 ## Installation
@@ -87,8 +78,6 @@ To start the installation run the following command
 $ sudo openstack-install
 ```
 
-> **note**
->
 > The installer should be run with sudo.
 
 An initial dialog box will appear asking you to select which type of install, choose **Multi-system**.
@@ -103,8 +92,6 @@ only work in a KVM.
 There is a minimal requirement for **Neutron** that requires **2 NICs** and that
 machine should be selected during placement.
 
-> **attention**
->
 > After a complete deploy it is necessary to tell **Neutron** which interface to use for external network access.
 >
 > ```
