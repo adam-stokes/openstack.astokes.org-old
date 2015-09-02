@@ -6,8 +6,8 @@ html
     meta(name='robots', content='index, follow')
     meta(name='description', content='ubuntu, linux, openstack, and cloud related blog.')
     meta(name='keywords', content='ubuntu, linux, openstack, cloud, installer')
-    meta(name='viewport', content='width=device-width')
-    link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,500|Exo+2:400,900,900italic,700' rel='stylesheet' type='text/css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css')
     link(rel='stylesheet', type='text/css', href='/static/css/main.min.css')
     script(src='/static/js/main.min.js')
     script.
@@ -16,22 +16,29 @@ html
       title= site.title
   body
     block header
-    nav.navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          a.navbar-brand Ubuntu OpenStack Installer
-        ul.nav.navbar-nav.navbar-right
-          li
-            a(href="/") Home
-          li
-            a(href="/guides") Guides
-    .container
-      block content
-        | Content here
+      nav(class="orange darken-4" role="navigation")
+        .nav-wrapper.container
+          a(href="/" class="brand-logo") Ubuntu OpenStack Installer
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              a(href="/") Home
+            li
+              a(href="/guides") Guides
+    block content
+      | Content here
     block footer
-      .container
-        hr
-        .col-md-6
-          | &copy; #{copyrightYear} Canonical, Ltd.
-        .col-md-6
-          img.img-responsive(src="/static/images/logo-canonical.svg")
+      footer.page-footer.blue-grey.darken-4
+        .container
+          .row
+            .col.l6.s12
+              h5.white-text Project Info
+              p.grey-text.text-lighten-4.
+                Ubuntu OpenStack Installer is Sponsored and Maintained by Canonical, Ltd.
+            .col.l4.offset-12.s12
+              h5.white-text Links
+                ul
+                  li
+                    a(href="https://github.com/Ubuntu-Solutions-Engineering/openstack-installer") Github
+        .footer-copyright
+          .container
+            a(class="orange-text text-lighten-3" href="https://canonical.com") &copy; 2015 Canonical, Ltd.

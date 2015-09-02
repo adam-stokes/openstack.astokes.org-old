@@ -4,12 +4,13 @@ block title
   title= active
 
 block content
-  .col-md-8
-    p!= html
-
-  .col-md-4
-    h3 Guides
-    ul
-      each guide in guides
-        li
-          a(href="/guides/#{guide.slug}") #{guide.title}
+  .container
+    .row
+      .col.s3
+        h3 Guides
+        .collection
+          each guide in guides
+            a(class="collection-item" href="/guides/#{guide.slug}") #{guide.title}
+      .col.s9
+        .flow-text
+          p!= html

@@ -1,26 +1,30 @@
 extends layout
 
 block content
-  .col-md-12
-    .jumbotron
-      | <iframe width="1000" height="563" src="https://www.youtube.com/embed/1eUoamVBzFI" frameborder="0" allowfullscreen></iframe>
-  .col-md-6
-    h1 Get Started
-    p Getting started is easy:
-    pre
-      code.bash.
-        $ sudo apt-add-repository ppa:cloud-installer/stable
-        $ sudo apt-get update
-        $ sudo apt-get install openstack
-        $ sudo openstack-install
-  .col-md-6
-    h1 Get Help
-    p For developer support
-      .well
-        p.
-          We're on <strong>irc.freenode.net</strong> at #ubuntu-solutions or
-          our <a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-openstack-installer">mailing list</a>.
-    p General OpenStack
-      .well
-        p.
-          Find help on running OpenStack at <a href="https://askubuntu.com/questions/tagged/openstack">Ask Ubuntu</a>
+  .container
+    .section
+      .row
+        .col.s6
+          .card
+            .card-image
+              img(src="/static/images/install-card.jpg")
+              span(class="card-title") Install
+            .card-content
+              pre
+                code.bash.
+                  $ sudo apt-add-repository ppa:cloud-installer/stable
+                  $ sudo apt-get update
+                  $ sudo apt-get install openstack
+                  $ sudo openstack-install
+        .col.s6
+          | <iframe width="600" height="338" src="https://www.youtube.com/embed/1eUoamVBzFI" frameborder="0" allowfullscreen></iframe>
+      .row.center
+        .col.s12
+          h1 Get Help
+          h5.orange-text For developer support
+          p.flow-text.
+            We're on <strong>irc.freenode.net</strong> at #ubuntu-solutions or
+            our <a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-openstack-installer">mailing list</a>.
+          h5.orange-text General OpenStack
+          p.flow-text.
+            Find help on running OpenStack at <a href="https://askubuntu.com/questions/tagged/openstack">Ask Ubuntu</a>

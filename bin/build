@@ -14,19 +14,18 @@ STYLUSFILE=$STYLUSDIR/main.styl
 # VENDOR
 VENDORCSS=(
     bower_components/highlightjs/styles/obsidian.css
-    bower_components/font-awesome/css/font-awesome.css
-    bower_components/bootswatch/united/bootstrap.css
+    bower_components/Materialize/dist/css/materialize.css
 )
 VENDORJS=(
     bower_components/jquery/dist/jquery.js
-    bower_components/bootstrap/dist/js/bootstrap.js
     bower_components/highlightjs/highlight.pack.js
+    bower_components/Materialize/dist/js/materialize.js
     assets/js/main.js
 )
 
 echo "Cleaning"
 rm -rf public
-mkdir -p public/{js,css,images,fonts}
+mkdir -p public/{js,css,images,font}
 
 echo "Running"
 $STYLUS -u ./node_modules/nib \
@@ -39,7 +38,7 @@ echo "Writing javascript files..."
 $UGLIFY "${VENDORJS[@]}" -o public/js/main.min.js
 
 echo "Copying additional resources"
-rsync -az assets/fonts/* public/fonts/.
+rsync -az bower_components/Materialize/dist/font/* public/font/.
 rsync -az assets/images/* public/images/.
 
 echo "Done"

@@ -15,10 +15,8 @@
     "tests"
   ],
   "dependencies": {
+    "Materialize": "materialize#~0.97.0",
     "highlightjs": "~8.6.0",
-    "font-awesome": "~4.4.0",
-    "jquery": "~2.1.4",
-    "bootstrap": "~3.3.5",
-    "bootswatch": "~3.3.5+2"
+    "jquery": "~2.1.4"
   }
 }
