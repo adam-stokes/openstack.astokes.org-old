@@ -192,23 +192,11 @@ The login credentials for the dashboard are:
 
 ## Accessing the OpenStack environment
 
-See Using Juju in OpenStack Guide \<using-juju-in-openstack.guide\>
+[1](See Using Juju in OpenStack Guide)
 
 ## Troubleshooting
 
-The installer keeps its own logs in **\$HOME/.cloud-install/commands.log**.
-
-## Killing the current OpenStack deployment
-
-Because the entire installation is within a single container it is easy to start
-a new deployment without uninstalling everything beforehand. To do that run:
-
-```
-$ sudo openstack-install -k
-```
-
-This will stop and destroy the container housing the OpenStack installation and
-allow you to start over.
+The installer keeps its own logs in **$HOME/.cloud-install/commands.log**.
 
 ## Uninstalling
 
@@ -251,3 +239,5 @@ $ openstack-status
 > Disclaimer: As the single installer is provided as a demo or proof-of-concept,
 > support for this advanced usage is very minimal.
 
+
+    [1]: /guides/using-juju-in-openstack
