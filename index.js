@@ -1,10 +1,7 @@
-'use strict';
-module.exports = function (str, opts) {
-	if (typeof str !== 'string') {
-		throw new TypeError('Expected a string');
-	}
+"use strict";
+require("babel/register");
 
-	opts = opts || {};
-
-	return str + ' & ' + (opts.postfix || 'rainbows');
-};
+var server = require("./server");
+server.start(function(){
+    console.info("Server running at: %s", server.info.uri);
+});

@@ -1,0 +1,8 @@
+{
+    "host": "localhost",
+    "port": 3000,
+    "site": {
+        "title": "Ubuntu OpenStack Installer",
+        "description": "easily install OpenStack."
+    }
+}

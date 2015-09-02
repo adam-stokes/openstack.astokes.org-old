@@ -1,9 +1,9 @@
 {
   "name": "openstack-astokes-org",
   "version": "0.0.0",
-  "description": "My unreal module",
+  "description": "Ubuntu OpenStack Installer",
   "license": "MIT",
-  "repository": "battlemidget/openstack-astokes-org",
+  "repository": "battlemidget/openstack.astokes.org",
   "author": {
     "name": "Adam Stokes",
     "email": "adam.stokes@ubuntu.com",
@@ -34,8 +34,7 @@
     "stylus": "^0.52.0",
     "uglifycss": "0.0.17",
     "uglifyjs": "^2.4.10",
-    "vision": "^3.0.0",
-    "yar": "^3.0.3"
+    "vision": "^3.0.0"
   },
   "devDependencies": {
     "mocha": "*"
