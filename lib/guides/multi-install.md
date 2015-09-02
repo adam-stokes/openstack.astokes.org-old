@@ -75,7 +75,7 @@ $ sudo apt-get install openstack
 To start the installation run the following command
 
 ```
-$ sudo openstack-install
+$ sudo openstack-install --edit-placement
 ```
 
 > The installer should be run with sudo.
@@ -113,6 +113,12 @@ machine should be selected during placement.
 >
 > This will merge in the custom charm options with the rest of the configuration
 > as to not lose any default setup options.
+
+### Configuring Neutron
+
+**TODO: Update documentation**
+
+In the meantime have a look at Robert Clark's [additional steps](https://github.com/Ubuntu-Solutions-Engineering/openstack-installer/issues/616#issue-85544487)
 
 ## Setting a password
 
