@@ -22,7 +22,10 @@
     ""
   ],
   "dependencies": {
+    "babel": "^5.8.23",
     "bluebird": "^2.9.34",
+    "boom": "^2.8.0",
+    "getconfig": "^2.1.0",
     "good": "^6.3.0",
     "good-console": "^5.0.2",
     "hapi": "~9.0.0",

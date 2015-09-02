@@ -1,23 +1,20 @@
-Deployment Test Guide
-=====================
+# Deployment Test Guide
 
-The document walks you through doing headless installs and using our testing tools to verify our installer is in top notch shape.
+The document walks you through doing headless installs and using our testing
+tools to verify our installer is in top notch shape.
 
-Base system
------------
+## Base system
 
 Testing is done on Ubuntu and using a release of **Trusty** or later.
 
-Install OpenStack Installer from the PPA
-----------------------------------------
+## Install OpenStack Installer from the PPA
 
-> **note**
->
-> We test all branches which are **master, testing, and stable**, but helping to keep our master branch green is a huge help.
+> We test all branches which are **master and stable**, but helping to
+> keep our master branch green is a huge help.
 
 First, the ppas:
 
-``` {.sourceCode .}
+```
 $ sudo apt-add-repository ppa:juju/stable
 $ sudo apt-add-repository ppa:maas-maintainers/stable
 $ sudo apt-add-repository ppa:cloud-installer/experimental
@@ -26,25 +23,24 @@ $ sudo apt-get update
 
 Next, needed packages:
 
-``` {.sourceCode .}
+```
 $ sudo apt-get install openstack openstack-ci git
 ```
 
 Now, grab the tests:
 
-``` {.sourceCode .}
+```
 $ git clone https://github.com/Ubuntu-Solutions-Engineering/openstack-tests.git ~/openstack-tests
 $ cd ~/openstack-tests
 ```
 
 All tests are kept in **quality** and **regressions** sub-folders.
 
-Testing the single install path
--------------------------------
+## Testing the single install path
 
 A sample configuration file to use with the Single install path, save this as **config-single.yaml**:
 
-``` {.sourceCode .}
+```
 headless: true
 install_type: Single
 openstack_password: pass
@@ -52,18 +48,18 @@ openstack_password: pass
 
 We're ready to start our tests:
 
-``` {.sourceCode .}
+```
 $ sudo openstack-ci -c ../config-single.yaml --with-install -a
 ```
 
-This command will push our single path install through the tester and perform all related single path install tests.
+This command will push our single path install through the tester and perform
+all related single path install tests.
 
-Testing the multi install path
-------------------------------
+## Testing the multi install path
 
 A sample configuration file for Multi install path, save this as **config-multi.yaml**:
 
-``` {.sourceCode .}
+```
 headless: true
 install_type: Multi
 maascreds:
@@ -87,28 +83,31 @@ placements:
     constraints: {}
 ```
 
-> **attention**
+> The **placements** directive is obtained by pulling the node id of a machine
+> you wish to deploy the cloud to. In the above example there is 1 machine in
+> the MAAS with an id of node-24ac63e0-a122-11e4-b67e-a0cec8006f97. We're
+> telling the installer that we should place nova-compute, neutron-gateway on
+> separate KVM's within that system and the rest of the OpenStack services
+> within LXC's also within that same system.
 >
-> The **placements** directive is obtained by pulling the node id of a machine you wish to deploy the cloud to. In the above example there is 1 machine in the MAAS with an id of node-24ac63e0-a122-11e4-b67e-a0cec8006f97. We're telling the installer that we should place nova-compute, neutron-gateway on separate KVM's within that system and the rest of the OpenStack services within LXC's also within that same system.
->
-> This placements directive is required for a complete unattended installation of OpenStack within MAAS.
+> This placements directive is required for a complete unattended installation
+> of OpenStack within MAAS.
 
 Run the tests:
 
-``` {.sourceCode .}
+```
 $ JUJU_BOOTSTRAP_TO=juju-bootstrap-node-1.maas openstack-ci -c ../config-multi.yaml --with-install -a
 ```
 
-> **attention**
->
-> **JUJU\_BOOTSTRAP\_TO** is not the same node as the one in the placements file. juju-bootstrap-node-1.maas is a second system in MAAS that Juju will bootstrap itself to.
+> **JUJU\_BOOTSTRAP\_TO** is not the same node as the one in the placements
+> file. juju-bootstrap-node-1.maas is a second system in MAAS that Juju will
+> bootstrap itself to.
 
-Testing the Landscape OpenStack Autopilot path
-----------------------------------------------
+## Testing the Landscape OpenStack Autopilot path
 
 A sample Landscape OpenStack Autopilot config, save this as **config-landscape.yaml**:
 
-``` {.sourceCode .}
+```
 headless: true
 install_type: Landscape OpenStack Autopilot
 landscapecreds:
@@ -125,32 +124,34 @@ openstack_password: pass
 
 Run the tests:
 
-``` {.sourceCode .}
+```
 $ JUJU_BOOTSTRAP_TO=juju-bootstrap-node-1.maas openstack-ci -c ../config-landscape.yaml --with-install -a
 ```
 
-Performing a specific Test
---------------------------
+## Performing a specific Test
 
-Referring to the same identifier name as stated in the **Reports** section running a single test without performing an install can be run like:
+Referring to the same identifier name as stated in the **Reports** section
+running a single test without performing an install can be run like:
 
-``` {.sourceCode .}
+```
 $ openstack-ci -c ../config-landscape.yaml -t 00_autopilot_deployed
 ```
 
 This would refer to the 00\_autopilot\_deployed.py file under the quality directory.
 
-Reports
--------
+## Reports
 
-Testing reports are kept in \~/.cloud-install/reports, they are prefixed by the identifer of the particular test that generated the report and a current timestamp. All tests are keyed by the filename of the tests minus .py. For example, the test **quality/00\_multi\_deployed.py** will have an indentifier of 00\_multi\_deployed.
+Testing reports are kept in \~/.cloud-install/reports, they are prefixed by the
+identifer of the particular test that generated the report and a current
+timestamp. All tests are keyed by the filename of the tests minus .py. For
+example, the test **quality/00\_multi\_deployed.py** will have an indentifier of
+00\_multi\_deployed.
 
-Example output
---------------
+## Example output
 
 Example output of a Multi install test:
 
-``` {.sourceCode .}
+```
 adam@maas:~/openstack-tests$ JUJU_BOOTSTRAP_TO=authorized-seat.maas openstack-ci -c ../config-multi.yaml --with-install -a
 [INFO  • 15:49:24 • openstackci] Initializing tests.
 [INFO  • 15:49:24 • openstackci] Deploying environment.
@@ -231,7 +232,7 @@ adam@maas:~/openstack-tests$ JUJU_BOOTSTRAP_TO=authorized-seat.maas openstack-ci
 
 An example of the report:
 
-``` {.sourceCode .}
+```
 adam@maas:~/openstack-tests$ cat ../.cloud-install/reports/00_multi_deployed_2015-01-29T16\:15\:19.386972.yaml 
 description: Verifies the multi install deployed.
 failed:

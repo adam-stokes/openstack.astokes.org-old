@@ -1,25 +1,21 @@
-Using Juju in OpenStack
-=======================
+## Using Juju in OpenStack
 
-Once the OpenStack cloud has been deployed there are only a couple of steps to enable juju to deploy charms into the private cloud.
+Once the OpenStack cloud has been deployed there are only a couple of steps to
+enable juju to deploy charms into the private cloud.
 
-> **attention**
->
 > Juju requires swift storage so this needs to have been enabled during the install.
 
 Generate necessary image metadata for Juju to utilize:
 
-``` {.sourceCode .}
+```
 $ openstack-juju metadata generate-image -i <image_id> -s trusty
 ```
 
-> **hint**
->
-> \<image\_id\> is found in the horizon dashboard http://\<public-ip\>/horizon/project/images/
+> **image_id** is found in the horizon dashboard http://public-ip/horizon/project/images/
 >
 > Alternatively, install **glance** client and retrieve the image list:
 >
-> ``` {.sourceCode .}
+> ```
 > $ sudo apt-get install glance
 > $ source ~/.cloud-install/openstack-admin-rc
 > $ glance image-list
@@ -33,14 +29,14 @@ $ openstack-juju metadata generate-image -i <image_id> -s trusty
 
 Sync Juju tools and bootstrap onto your OpenStack private cloud:
 
-``` {.sourceCode .}
+```
 $ openstack-juju sync-tools
 $ openstack-juju bootstrap --metadata-source /home/ubuntu
 ```
 
 Now you can deploy charms within your OpenStack cloud.
 
-``` {.sourceCode .}
+```
 $ openstack-juju deploy jenkins
 $ openstack-juju deploy -n 5 jenkins-slave
 $ openstack-juju add-relation jenkins jenkins-slave
@@ -48,7 +44,8 @@ $ openstack-juju set jenkins password=AseCreTPassWoRd
 $ openstack-juju expose jenkins
 ```
 
-> **caution**
->
-> *Single Install Note* - Resources are limited in a single installation of OpenStack. So anything more than deploying a small service will fail due to resource constraints. For example, you could probably get away with deploying Wordpress and MySQL, but, not Hadoop or Jenkins.
+> *Single Install Note* - Resources are limited in a single installation of
+> OpenStack. So anything more than deploying a small service will fail due to
+> resource constraints. For example, you could probably get away with deploying
+> Wordpress and MySQL, but, not Hadoop or Jenkins.
 

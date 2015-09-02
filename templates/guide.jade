@@ -1,0 +1,15 @@
+extends layout
+
+block title
+  title= active
+
+block content
+  .col-md-8
+    p!= html
+
+  .col-md-4
+    h3 Guides
+    ul
+      each guide in guides
+        li
+          a(href="/guides/#{guide.slug}") #{guide.title}

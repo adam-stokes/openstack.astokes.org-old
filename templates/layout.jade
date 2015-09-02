@@ -12,7 +12,8 @@ html
     script(src='/static/js/main.min.js')
     script.
       hljs.initHighlightingOnLoad();
-    title= site.title
+    block title
+      title= site.title
   body
     block header
     nav.navbar.navbar-default.navbar-fixed-top
@@ -23,7 +24,7 @@ html
           li
             a(href="/") Home
           li
-            a(href="/docs") Docs
+            a(href="/guides") Guides
     .container
       block content
         | Content here

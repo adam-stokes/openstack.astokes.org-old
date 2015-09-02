@@ -4,14 +4,14 @@
 
 - [Landscape OpenStack Autopilot Guide](http://www.ubuntu.com/download/cloud/install-ubuntu-openstack):
   Deploy **The Canonical Distribution of Ubuntu OpenStack**.
-- Single Installer Guide \<single-installer.guide\> : Deploy a full OpenStack
+- [Single Installer Guide](/guides/single-install): Deploy a full OpenStack
   environment within a single LXC container with nested virtual machines.
-- Multi Installer Guide \<multi-installer.guide\> : Use MAAS and a combination
+- [Multi Installer Guide](/guides/multi-install): Use MAAS and a combination
   of bare metal and virtual machines to deploy an OpenStack cloud.
 
 ## Usage
 
-- Using Juju in OpenStack Guide \<using-juju-in-openstack.guide\> - Learn how to
+- [Using Juju in OpenStack Guide](/guides/using-juju) - Learn how to
   orchestrate services within an OpenStack cloud.
 
 ## Getting Help
@@ -22,9 +22,9 @@
 
 ## Testing Deployments
 
-- Deployment Test Guide \<tester.guide\> - Interested in helping us test the deployment of private clouds with the installer? We'd love that!
+- [Deployment Test Guide](/guides/testing) - Interested in helping us test the deployment of private clouds with the installer? We'd love that!
 
 ## Developer Details
 
-- Developer Guide \<developer.setup\> - Interested in contributing to the code? Start here first.
+- [Developer Guide](/guides/developer-setup) - Interested in contributing to the code? Start here first.
 

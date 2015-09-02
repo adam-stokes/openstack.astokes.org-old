@@ -192,7 +192,7 @@ The login credentials for the dashboard are:
 
 ## Accessing the OpenStack environment
 
-[1](See Using Juju in OpenStack Guide)
+[See Using Juju in OpenStack Guide](/guides/using-juju)
 
 ## Troubleshooting
 
@@ -238,6 +238,3 @@ $ openstack-status
 >
 > Disclaimer: As the single installer is provided as a demo or proof-of-concept,
 > support for this advanced usage is very minimal.
-
-
-    [1]: /guides/using-juju-in-openstack
