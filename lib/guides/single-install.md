@@ -9,8 +9,6 @@ $ sudo apt-add-repository ppa:cloud-installer/stable
 $ sudo apt-get update
 ```
 
-> **note**
->
 > Adding the ppa is only necessary until an official release to the archives has
 > been announced.
 
@@ -48,14 +46,17 @@ Optional Flags
 
 ```
 usage: openstack-install [-h] [-i] [-u] [-c CONFIG_FILE]
-                         [--charm-config CHARM_CONFIG_FILE] [-g GET_CONFIG]
-                         [-k] [--killcloud-noprompt]
-                         [--openstack-release OPENSTACK_RELEASE] [-a ARCH]
-                         [-r RELEASE] [-p]
-                         [--upstream-ppa]
-                         [--upstream-deb UPSTREAM_DEB]
+                         [--charm-config CHARM_CONFIG_FILE]
+                         [--charm-plugin-dir CHARM_PLUGIN_DIR] [-g GET_CONFIG]
+                         [--openstack-release {icehouse,juno,kilo}]
+                         [--openstack-tip] [-a ARCH] [-r RELEASE]
+                         [--edit-placement] [--upstream-ppa]
+                         [--upstream-deb UPSTREAM_DEB] [--apt-proxy APT_PROXY]
+                         [--apt-https-proxy APT_HTTPS_PROXY]
                          [--http-proxy HTTP_PROXY] [--https-proxy HTTPS_PROXY]
-                         [--headless] [--storage {ceph,swift}] [--version]
+                         [--headless] [--debug] [--next-charms] [--use-nclxd]
+                         [--series UBUNTU_SERIES] [--maas-tag MAAS_TAG]
+                         [--version]
 
 Ubuntu Openstack Installer
 
@@ -71,39 +72,46 @@ optional arguments:
                         Custom configuration for OpenStack installer.
   --charm-config CHARM_CONFIG_FILE
                         Additional charm settings
+  --charm-plugin-dir CHARM_PLUGIN_DIR
+                        Location of additional charm plugins to extend the
+                        installer.
   -g GET_CONFIG, --get-config GET_CONFIG
                         with arg <key>, prints config value for 'key' to
                         stdout and exits.
-  -k, --killcloud       Tear down existing cloud leaving userdata in place.
-                        Useful for iterative deploys.
-  --killcloud-noprompt  Tear down existing cloud leaving userdata in place.
-                        CAUTION: Does not confirm teardown, Use with care!
-  --openstack-release OPENSTACK_RELEASE
-                        Specify a specific OpenStack release by code-name,
-                        e.g. 'icehouse' or 'juno'
+  --openstack-release {icehouse,juno,kilo}
+                        Specify a specific OpenStack release.
+  --openstack-tip       Deploy from OpenStack master branches.
   -a ARCH               <arch, ..> comma-separated list of architectures to
                         filter available cloud images with which to populate
                         Glance, e.g. amd64,arm64
   -r RELEASE            <rel, ..> comma-separated list of Ubuntu releases to
                         filter available cloud images with which to populate
                         Glance, e.g. precise,trusty
-  -p, --placement       Show machine placement UI before deploying
-  --upstream-ppa        Use experimental PPA.
+  --edit-placement      Show machine placement UI before deploying
+  --upstream-ppa        Use upstream experimental ppa.
   --upstream-deb UPSTREAM_DEB
                         Upload a local copy of openstack debian package to be
                         used in a single install. (DEVELOPERS)
+  --apt-proxy APT_PROXY
+                        Specify APT proxy
+  --apt-https-proxy APT_HTTPS_PROXY
+                        Specify APT HTTPS proxy
   --http-proxy HTTP_PROXY
                         Specify HTTP proxy
   --https-proxy HTTPS_PROXY
                         Specify HTTPS proxy
   --headless            Run deployment without prompts/gui
-  --storage {ceph,swift}
-                        Choose storage backend to deploy initially.
+  --debug               Debug mode
+  --next-charms         Use /next charms to test upcoming features.
+  --use-nclxd           Enable LXD support for Nova Compute. Requires--series
+                        vivid to be set.
+  --series UBUNTU_SERIES
+                        Ubuntu series codename (eg. 'trusty', 'utopic') for
+                        juju default
+  --maas-tag MAAS_TAG   Only operate on machines in MAAS with this tag
   --version             show program's version number and exit
 ```
 
-> **attention**
->
 > Enabling swift storage requires at least 3 instances and another additional
 > instance for swift-proxy. They are automatically deployed but stated here for
 > reference.
@@ -232,8 +240,6 @@ will bring up the status screen again:
 $ openstack-status
 ```
 
-> **caution**
->
 > Depending on the host system, times vary when starting up all the services to
 > when the cloud is accessible again. Most test runs of this have taken roughly
 > 30 minutes to come back online.
