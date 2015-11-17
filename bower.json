@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "Materialize": "materialize#~0.97.0",
+    "Materialize": "materialize#~0.97.3",
     "highlightjs": "~8.6.0",
     "jquery": "~2.1.4"
   }
